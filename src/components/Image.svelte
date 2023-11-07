@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import Spinner from './Spinner.svelte';
 
 	let className = '';
 	export { className as class };
@@ -37,7 +38,7 @@
 	<span title={alt}>404</span>
 {:else if loading}
 	<!-- Do not replace with spinner -->
-	<img role="progressbar" alt="Loading" src="/images/spinner.svg" />
+	<Spinner />
 {/if}
 
 <style>

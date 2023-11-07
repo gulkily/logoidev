@@ -1,9 +1,16 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
+import circleDependency from 'vite-plugin-circular-dependency';
+
 import path from 'path';
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [
+		sveltekit(),
+		circleDependency({
+			include: [/\.[jt]sx?$/, /\.svelte\?$/]
+		})
+	],
 	resolve: {
 		alias: {
 			src: path.resolve(__dirname, './src')
